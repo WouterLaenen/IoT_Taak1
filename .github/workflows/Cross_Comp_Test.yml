@@ -13,10 +13,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+   - name: Install g++
+      run: sudo apt-get install g++
+
     - name: Install Cross-Compiler
       run: sudo apt-get install gcc-arm-linux-gnueabihf
-
-
 
     - name: Compile main.cpp
       run: g++ -o my_program Test1.cpp
