@@ -1,0 +1,23 @@
+name: Compile C++ on Push
+
+on:
+  push:
+    branches:
+      - main  # Hier kun je de naam van de standaard branche aanpassen
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install g++
+      run: sudo apt-get install g++
+
+    - name: Compile main.cpp
+      run: g++ -o my_program Test1.cpp
+
+    - name: Execute my_program
+      run: ./my_program
