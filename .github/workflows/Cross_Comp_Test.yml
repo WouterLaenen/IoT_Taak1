@@ -24,6 +24,3 @@ jobs:
 
     - name: Compile for PYNQ
       run: arm-linux-gnueabihf-gcc -o out.exe Test1.cpp # Compileer naar EXE_Bestanden-map
-
-    - name: Copy Binary to EXE_Bestanden
-      run: cp EXE_Bestanden/my_program EXE_Bestanden/  # Kopieer het uitvoerbare bestand naar de EXE_Bestanden-map
