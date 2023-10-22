@@ -19,7 +19,7 @@ jobs:
       run: sudo apt-get install gcc-arm-linux-gnueabihf
  
     - name: Compile main.cpp
-      run: arm-linux-gnueabihf-gcc -o my_program Test1.cpp
+      run: arm-linux-gnueabihf-gcc -o my_program Test1.c
 
     - name: Execute my_program
       run: ./my_program
