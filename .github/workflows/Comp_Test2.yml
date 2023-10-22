@@ -1,4 +1,4 @@
-name: Compile C++ on Push
+name: Compile C++ on Push Test2
 
 on:
   push:
