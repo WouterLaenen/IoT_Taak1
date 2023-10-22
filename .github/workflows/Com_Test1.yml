@@ -17,7 +17,7 @@ jobs:
       run: sudo apt-get install g++
 
     - name: Compile main.cpp
-      run: g++ -o my_program Main.cpp
+      run: g++ -o my_program Test1.cpp
 
     - name: Execute my_program
       run: ./my_program
