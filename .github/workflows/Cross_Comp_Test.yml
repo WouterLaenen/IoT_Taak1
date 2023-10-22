@@ -1,4 +1,5 @@
-name: Compile C++ on Push Test1
+name: Cross_Compile C++ on Push Test1
+
 
 on:
   push:
@@ -13,9 +14,9 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-   - name: Install g++
+    - name: Install g++
       run: sudo apt-get install g++
-
+      
     - name: Install Cross-Compiler
       run: sudo apt-get install gcc-arm-linux-gnueabihf
 
@@ -25,7 +26,7 @@ jobs:
     - name: Execute my_program
       run: ./my_program
 
-   - name: Create EXE_Bestanden Directory
+    - name: Create EXE_Bestanden Directory
       run: mkdir EXE_Bestanden  # Maak de EXE_Bestanden-map aan
 
     - name: Copy Binary to EXE_Bestanden
