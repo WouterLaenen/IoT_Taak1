@@ -1,10 +1,8 @@
 name: Cross_Compile C++ on Push Test1
-
-
 on:
   push:
     branches:
-      - main  # Hier kun je de naam van de standaard branche aanpassen
+      - main
 
 jobs:
   build:
@@ -14,20 +12,18 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install g++
-      run: sudo apt-get install g++
-      
     - name: Install Cross-Compiler
-      run: sudo apt-get install gcc-arm-linux-gnueabihf
+      run: sudo apt-get install gcc-arm-linux-gnueabihf  # Vervang dit door de juiste cross-compiler voor PYNQ
 
-    - name: Compile main.cpp
-      run: g++ -o my_program Test1.cpp
+    - name: Create EXE_Bestanden Directory if not exists
+      run: |
+        if [ ! -d "EXE_Bestanden" ]; then
+          mkdir EXE_Bestanden
+        fi
+      # Dit script controleert of de map bestaat en maakt deze aan als dat niet het geval is
 
-    - name: Execute my_program
-      run: ./my_program
-
-    - name: Create EXE_Bestanden Directory
-      run: mkdir EXE_Bestanden  # Maak de EXE_Bestanden-map aan
+    - name: Compile for PYNQ
+      run: arm-linux-gnueabihf-g++ -o EXE_Bestanden/my_program main.cpp  # Compileer naar EXE_Bestanden-map
 
     - name: Copy Binary to EXE_Bestanden
-      run: cp EXE_Bestanden/my_program EXE_Bestanden/
+      run: cp EXE_Bestanden/my_program EXE_Bestanden/  # Kopieer het uitvoerbare bestand naar de EXE_Bestanden-map
